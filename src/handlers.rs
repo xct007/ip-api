@@ -1,25 +1,10 @@
+use crate::models::{Rr, R};
 use actix_web::http::header::HeaderMap;
 use actix_web::{HttpRequest, HttpResponse};
-use serde::{Deserialize, Serialize};
 
 const HEADER_CF_CONNECTING_IP: &str = "cf-connecting-ip";
 const HEADER_CF_IP_COUNTRY: &str = "cf-ipcountry";
 const HEADER_X_FORWARDED_FOR: &str = "x-forwarded-for";
-
-#[derive(Deserialize, Serialize, PartialEq, Debug)]
-pub struct R {
-    pub status: bool,
-    pub message: String,
-
-    #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(default)]
-    pub result: Option<Rr>,
-}
-
-#[derive(Deserialize, Serialize, PartialEq, Debug)]
-pub struct Rr {
-    pub ip: String,
-}
 
 pub struct Handler;
 

@@ -1,6 +1,7 @@
 #[cfg(test)]
 mod tests {
-    use crate::handlers::{Handler, R};
+    use crate::handlers::Handler;
+    use crate::models::R;
     use actix_web::test::{call_service, init_service, TestRequest};
     use actix_web::{http, App};
 
